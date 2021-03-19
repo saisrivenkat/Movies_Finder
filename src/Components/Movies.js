@@ -6,6 +6,14 @@ import { Link } from "react-router-dom";
 
 function Movies({ movies }) {
     const url = "https://image.tmdb.org/t/p/w200";
+
+
+    const urlchange = (id) => {
+        const overview = `http://www.themoviedb.org/movie/${id}`
+        return overview
+    }
+
+
     const color = (vote) => {
         if (vote < 5) {
             return "red";
@@ -34,6 +42,8 @@ function Movies({ movies }) {
                                                 <span className={color(ul.vote_average)}>{ul.vote_average}</span>
                                             </Col>
                                         </Row>
+                                        <a href={urlchange(ul.id)}>More</a>
+
                                         <Link
                                             className="btn btn-primary"
                                             to={{
@@ -41,7 +51,7 @@ function Movies({ movies }) {
                                                 state: {
                                                     overview: ul.overview,
                                                     title: ul.title,
-                                                    id:ul.id
+                                                    id: ul.id
 
                                                 }
                                             }}

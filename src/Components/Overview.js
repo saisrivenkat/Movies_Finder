@@ -13,9 +13,9 @@ const Overview = (props) => {
                 setsimilar(resjson.results)
             }
         }
-        similar()
+        similar(id)
 
-    }, [])
+    }, [id])
     return (
         <React.Fragment>
             <h1>{overview}</h1>
